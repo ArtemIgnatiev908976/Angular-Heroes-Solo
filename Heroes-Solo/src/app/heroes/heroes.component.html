@@ -1,21 +1,31 @@
-<h2>My Heroes</h2>
 
-<div>
-  <label>Hero name:
-    <input #heroName />
-  </label>
-  <!-- (click) passes input value to add() and then clears the input -->
-  <button (click)="add(heroName.value); heroName.value=''">
-    add
-  </button>
+<div class="container">
+
+
+  <h2>Мои герои</h2>
+    <label>Имя героя:
+      <input  type="text" class="form-control" placeholder="Бетмен" #heroName/>
+    </label>
+    <br>
+    <button  class="mr-4" (click)="add(heroName.value); heroName.value=''">
+      Добавить
+    </button>
+
+  <table class="table table-cards align-items-center">
+    <thead>
+    <tr>
+      <th scope="col" class="col-4">#id</th>
+      <th scope="col">Имя</th>
+      <th scope="col" class="col-2">Удаление</th>
+    </tr>
+    </thead>
+    <tbody class="list">
+    <tr *ngFor="let hero of heroes" routerLink="/detail/{{hero.id}}" style="cursor: pointer">
+      <th scope="row" >{{hero.id}}</th>
+      <td>{{hero.name}}</td>
+      <td  (click)="delete(hero)"><button>удалить</button></td>
+    </tr>
+    </tbody>
+  </table>
 </div>
 
-<ul class="heroes">
-  <li *ngFor="let hero of heroes">
-    <a routerLink="/detail/{{hero.id}}">
-      <span class="badge">{{hero.id}}</span> {{hero.name}}
-    </a>
-    <button class="delete" title="delete hero"
-            (click)="delete(hero)">x</button>
-  </li>
-</ul>

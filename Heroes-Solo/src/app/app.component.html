@@ -1,7 +1,21 @@
-<h1>{{title}}</h1>
-<nav>
-  <a routerLink="/dashboard">Dashboard</a>
-  <a routerLink="/heroes">Heroes</a>
-</nav>
-<router-outlet></router-outlet>
-<app-messages></app-messages>
+
+<div class="container ">
+<div class="row justify-content-center">
+
+  <div class="col-lg-7 text-center">
+    <h1 class="display-4 text-black-50 mb-4">{{title}}</h1>
+    <nav>
+      <a routerLink="/dashboard" class="mr-4 ml-3">Доска топ героев</a>
+      <a routerLink="/heroes">Герои</a>
+    </nav>
+
+
+  </div>
+
+
+</div>
+  <br>
+  <router-outlet></router-outlet>
+  <app-messages></app-messages>
+</div>
+
